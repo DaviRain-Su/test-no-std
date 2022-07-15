@@ -1,0 +1,22 @@
+[package]
+name = "test-no-std"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+ibc = { version = "0.16.0", default-features = false }
+eyre = { version = "0.6", default-features = false, git = "https://github.com/DaviRain-Su/eyre.git" }
+anyhow = { version = "1.0.58", default-features = false }
+
+[features]
+default = ["std"]
+std = [
+    "ibc/std",
+    "eyre/std",
+    "anyhow/std",
+]
